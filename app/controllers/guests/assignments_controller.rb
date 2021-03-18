@@ -17,8 +17,8 @@ class Guests::AssignmentsController < ApplicationController
 	end
 
 	def create
-		# @room = Room.find_by(room_num: params[:room_number])
-		@room = Room.find_by(room_num: @guest.roomNum)
+		@room = Room.find_by(room_num: params[:assignment][:room_number])
+		# @room = Room.find_by(room_num: @guest.roomNum)
        	@assignment = @guest.assignments.build(assignment_params)
 		# @assignment = Assignment.new({guest: @guest, room: @room})
 		@assignment.guest_id = @guest.id
@@ -39,7 +39,7 @@ class Guests::AssignmentsController < ApplicationController
 	def update
 		respond_to do |format|
 			if @assignment.update(assignment_params)
-				@assignment.room_id = Room.find_by(room_num: @assignment.room_number)
+				@assignment.room_id = Room.find_by(room_num: @assignment.room_number).id
 				format.html { redirect_to guest_url(@assignment.guest_id), notice: "Updated!" }
 				format.json { render :show, status: :ok, location: @assignment }
 			else
@@ -61,6 +61,11 @@ class Guests::AssignmentsController < ApplicationController
 
 	    if !Room.exists?(room_num: params[:assignment][:room_number])
 	        redirect_to guest_url(@guest.id), notice: "Room must exists."
+	    else
+	    	@room = Room.find_by(room_num: params[:assignment][:room_number])
+	    	if Assignment.exists?(guest: @guest, room: @room)
+	    		redirect_to guest_url(@guest.id), notice: "Room already assigned to the guest."
+	    	end
 	    end
     end
 

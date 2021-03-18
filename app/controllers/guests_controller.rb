@@ -1,6 +1,6 @@
 class GuestsController < ApplicationController
   before_action :set_guest, only: %i[ show edit update destroy ]
-  before_action :checkRoom, only: %i[ create update ]
+  before_action :checkRoom, only: %i[ create ]
 
   # GET /guests or /guests.json
   def index
@@ -52,10 +52,10 @@ class GuestsController < ApplicationController
         #   assignment.destroy
         # end
 
-        if !@guest.roomNum.blank?
-          @room = Room.find_by(room_num: @guest.roomNum)
-          assignment = Assignment.create ( {guest: @guest, room: @room} )  # saved
-        end
+        # if !@guest.roomNum.blank?
+        #   @room = Room.find_by(room_num: @guest.roomNum)
+        #   assignment = Assignment.create ( {guest: @guest, room: @room} )  # saved
+        # end
         format.html { redirect_to @guest, notice: "Guest was successfully updated." }
         format.json { render :show, status: :ok, location: @guest }
       else
