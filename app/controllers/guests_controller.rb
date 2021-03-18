@@ -27,7 +27,7 @@ class GuestsController < ApplicationController
 
     respond_to do |format|
       if @guest.save
-        if !@guest.roomNum.blank?
+        if !@guest.roomNum.nil?
           @room = Room.find_by(room_num: @guest.roomNum)
           assignment = Assignment.create ( {guest: @guest, room: @room} )  # saved
         end
@@ -79,9 +79,9 @@ class GuestsController < ApplicationController
     # redirect_to guests_path, notice: "No this room." if @room.nil?
     if !Room.exists?(room_num: params[:guest][:roomNum])
         if @guest.nil?
-          redirect_to guests_path, notice: "No this room."
+          redirect_to guests_path, notice: "Room must exists."
         else
-          redirect_to @guest, notice: "No this room."
+          redirect_to @guest, notice: "Room must exists."
         end
     end
 
