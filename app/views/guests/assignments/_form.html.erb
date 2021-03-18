@@ -1,0 +1,24 @@
+<%= form_for [@guest, @assignment] do |f| %>
+  <% if assignment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
+
+      <ul>
+        <% @assignment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+<%= @guest.first_name + " " + @guest.last_name %>
+
+  <div class="field">
+    <%= f.label :room_number %>
+    <%= f.text_area :room_number %>
+  </div>
+
+  <%= f.submit %>
+  <% end %>

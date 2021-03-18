@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @assignment.guest.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @assignment.guest.last_name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @assignment.guest.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @assignment.guest.email %>
+</p>
+
+<p>
+  <strong>RoomNum:</strong>
+  <%= @assignment.room.room_num %>
+</p>
+
+
+
+
+
+<%= link_to 'Back', guest_url(@assignment.guest_id) %> |
+<%= link_to 'Destroy', guest_assignment_url, method: :delete, data: { confirm: 'Are you sure?' } %>
