@@ -1,36 +1,26 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @guest.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @guest.last_name %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @guest.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @guest.email %>
-</p>
+<div class="bg-light p-5 rounded-lg m-3">
+  <h1 class="display-4">
+    <%= @guest.first_name %>
+    <%= @guest.last_name %>
+  </h1>
+  <p class="lead">
+    <strong>Phone:</strong>
+    <%= @guest.phone %> |
+    <strong>Email:</strong>
+    <%= @guest.email %>
+  </p>
+  <hr class="my-4">
+  <p></p>
+  <br>
+  <%= link_to 'Edit', edit_guest_path(@guest), class:"btn btn-secondary" %> &nbsp;
+  <%= link_to 'Back', guests_path, class:"btn btn-dark" %>
+</div>
 
 
+<div class="p-4 m-3">
 
-
-
-<%= link_to 'Edit', edit_guest_path(@guest) %> |
-<%= link_to 'Back', guests_path %>
-
-<hr>
-
-<h2>Rooms for <%= @guest.first_name %> </h2>
-<table>
+<table class="table">
 <tbody>
     <% @assignments.each do |assignment| %>
       <tr>
@@ -46,5 +36,6 @@
   </tbody>
 
 </table>
-
-<%= link_to "Assign a new room for this guest", new_guest_assignment_path(@guest) %>
+<br/>
+<%= link_to "Assign a new room", new_guest_assignment_path(@guest), class:"btn btn-secondary" %>
+</div>

@@ -1,3 +1,5 @@
+
+
 <%= form_with(model: guest) do |form| %>
   <% if guest.errors.any? %>
     <div id="error_explanation">
@@ -11,32 +13,34 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+  <div class="mb-3">
+    <% form.label :first_name %>
+    <%= form.text_field :first_name, class:"form-control", placeholder:"First Name" %>
   </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+  <div class="mb-3">
+    <% form.label :last_name %>
+    <%= form.text_field :last_name, class:"form-control", placeholder:"Last Name" %>
   </div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
+  <div class="mb-3">
+    <% form.label :phone %>
+    <%= form.text_field :phone, class:"form-control", placeholder:"Phone number" %>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="mb-3">
+    <% form.label :email %>
+    <%= form.text_field :email, class:"form-control", placeholder:"Email" %>
   </div>
 
-    <div class="field">
-    <%= form.label :roomNum %>
-    <%= form.text_field :roomNum %>
+<% if !@updating %>
+    <div class="mb-3">
+    <% form.label :roomNum %>
+    <%= form.text_field :roomNum, class:"form-control", placeholder:"Room number" %>
   </div>
+<% end %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-secondary"%>
   </div>
 <% end %>

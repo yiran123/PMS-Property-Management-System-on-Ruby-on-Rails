@@ -1,43 +1,7 @@
+
 <h1>Editing Guest</h1>
-
-<%= form_with(model: @guest) do |form| %>
-  <% if @guest.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
-
-      <ul>
-        <% @guest.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<%= link_to 'Show', @guest %> |
-<%= link_to 'Back', guests_path %>
+<br>
+<%= render 'form', guest: @guest %>
+<br>
+<%= link_to 'Show', @guest, class:"btn btn-secondary"%>&nbsp;
+<%= link_to 'Back', guests_path, class:"btn btn-dark" %>
