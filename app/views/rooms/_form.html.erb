@@ -11,13 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :room_num %>
-    <%= form.text_field :room_num %>
+  <div class="mb-3">
+    <% form.label :room_num %>
+    <%= form.text_field :room_num, class:"form-control", placeholder:"Room Number" %>
   </div>
 
-
+<br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-secondary" %>
   </div>
 <% end %>

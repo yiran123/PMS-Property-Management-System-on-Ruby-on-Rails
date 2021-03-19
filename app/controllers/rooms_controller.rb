@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: %i[ show edit update destroy ]
+  before_action :checkRoom, only: %i[ create update ]
 
   # GET /rooms or /rooms.json
   def index
@@ -63,6 +64,17 @@ class RoomsController < ApplicationController
       format.html { redirect_to rooms_url, notice: "Room was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def checkRoom
+    # @room = Room.find_by(room_num: params[:roomNum])
+    # redirect_to guests_path, notice: "No this room." if @room.nil?
+    if !params[:room][:room_num].blank? && Room.exists?(room_num: params[:room][:room_num])
+
+      redirect_to rooms_path, notice: "Room already exists."
+      
+    end
+
   end
 
   private

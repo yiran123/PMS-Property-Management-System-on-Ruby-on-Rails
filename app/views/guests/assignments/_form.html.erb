@@ -13,12 +13,14 @@
 
 
 
-<%= @guest.first_name + " " + @guest.last_name %>
 
-  <div class="field">
-    <%= f.label :room_number %>
-    <%= f.text_area :room_number %>
+  <div class="mb-3">
+    <% f.label :room_number %>
+    <%= f.text_field :room_number, class:"form-control", placeholder:"Room Number"%>
   </div>
+<br>
+  <div class="actions">
+    <%= f.submit class:"btn btn-secondary"%>
+  </div>
+<% end %>
 
-  <%= f.submit %>
-  <% end %>

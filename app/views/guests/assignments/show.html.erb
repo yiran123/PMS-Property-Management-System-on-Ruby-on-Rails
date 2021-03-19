@@ -1,32 +1,18 @@
-
-<p>
-  <strong>First name:</strong>
-  <%= @assignment.guest.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @assignment.guest.last_name %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @assignment.guest.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @assignment.guest.email %>
-</p>
-
-<p>
-  <strong>RoomNum:</strong>
+<div class="bg-light p-5 rounded-lg m-3">
+  <h1 class="display-4">
+    <%= @assignment.guest.first_name %>
+    <%= @assignment.guest.last_name %>
+  </h1>
+  <p class="lead">
+    <strong>Phone:</strong>
+    <%= @assignment.guest.phone %> |
+    <strong>Email:</strong>
+    <%= @assignment.guest.email %>
+  </p>
+  <hr class="my-4">
+ <strong>RoomNum:</strong>
   <%= @assignment.room.room_num %>
-</p>
-
-
-
-
-
-<%= link_to 'Back', guest_url(@assignment.guest_id) %> |
-<%= link_to 'Destroy', guest_assignment_url, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <br><br/>
+  <%= link_to 'Back', guest_url(@assignment.guest_id), class:"btn btn-secondary" %> &nbsp;
+  <%= link_to 'Destroy', guest_assignment_url, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-dark" %>
+</div>
