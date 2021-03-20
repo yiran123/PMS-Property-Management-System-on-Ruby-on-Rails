@@ -4,4 +4,7 @@
 <%= render 'form', guest: @guest %>
 <br>
 <%= link_to 'Show', @guest, class:"btn btn-secondary"%>&nbsp;
+<%= link_to 'Delete', @guest, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+<br><br />
 <%= link_to 'Back', guests_path, class:"btn btn-dark" %>
+

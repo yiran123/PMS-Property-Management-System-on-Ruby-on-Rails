@@ -13,7 +13,9 @@
   <hr class="my-4">
   <p></p>
   <br>
+  <% if user_signed_in? %>
   <%= link_to 'Edit', edit_guest_path(@guest), class:"btn btn-secondary" %> &nbsp;
+  <% end %>
   <%= link_to 'Back', guests_path, class:"btn btn-dark" %>
 </div>
 
@@ -29,7 +31,7 @@
       <th colspan="3"></th>
 
         <td><%= assignment.room.room_num %></td>
-        <td><%= link_to 'Show', guest_assignment_path(@guest.id, assignment.id) %></td>
+        <td><%= link_to 'Show', guest_assignment_path(@guest.id, assignment.id), class:"btn btn-outline-dark btn-sm" %></td>
         
       </tr>
     <% end %>
@@ -37,5 +39,7 @@
 
 </table>
 <br/>
+<% if user_signed_in? %>
 <%= link_to "Assign a new room", new_guest_assignment_path(@guest), class:"btn btn-secondary" %>
+<% end %>
 </div>

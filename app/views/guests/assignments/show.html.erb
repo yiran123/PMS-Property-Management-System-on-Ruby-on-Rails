@@ -14,5 +14,7 @@
   <%= @assignment.room.room_num %>
   <br><br/>
   <%= link_to 'Back', guest_url(@assignment.guest_id), class:"btn btn-secondary" %> &nbsp;
+   <% if user_signed_in? %>
   <%= link_to 'Destroy', guest_assignment_url, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-dark" %>
+  <% end %>
 </div>

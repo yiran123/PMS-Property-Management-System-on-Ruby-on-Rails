@@ -4,29 +4,37 @@
 <table class="table table-hover table-striped">
   <thead>
     <tr class="table-dark">
-      <th>First name</th>
-      <th>Last name</th>
+      <th>Name</th>
       <th>Phone</th>
       <th>Email</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @guests.each do |guest| %>
       <tr>
-        <td><%= guest.first_name %></td>
-        <td><%= guest.last_name %></td>
+        <td>
+          <%= link_to guest.first_name + " " + guest.last_name, guest %>
+
+          
+        </td>
         <td><%= guest.phone %></td>
         <td><%= guest.email %></td>
-        <td><%= link_to 'Show', guest %></td>
-        <td><%= link_to 'Edit', edit_guest_path(guest) %></td>
-        <td><%= link_to 'Destroy', guest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        
+        <% if user_signed_in? %>
+        
+        <td><%= link_to 'Delete', guest, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger btn-sm" %></td>
+        <% else %>
+        <td></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if user_signed_in? %>
 <%= link_to 'New Guest', new_guest_path, class:"btn btn-secondary" %>
+<% end %>

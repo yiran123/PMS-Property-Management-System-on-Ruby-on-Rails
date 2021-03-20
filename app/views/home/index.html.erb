@@ -1,2 +1,29 @@
-<h1>Hello World!</h1>
+<br>
+<div class="card">
+  <div class="card-header">
+    <h1>Welcome to Property Management System</h1>
+  </div>
+
+
+  <div class="card-body">
+  	<br>
+  	<% if user_signed_in? %>
+        <h5 class="card-title">Sign Out</h5>
+	    <%= link_to 'Sign Out', destroy_user_session_path, class:"btn btn-outline-primary" %>
+	    <br><br />
+	    <h5 class="card-title">Edit Profile</h5>
+	    <%= link_to 'Profile', edit_user_registration_path, class:"btn btn-outline-primary" %>
+        
+        <% else %>
+
+	    <h5 class="card-title">Not a user?</h5>
+	    <%= link_to 'Sign Up', new_user_registration_path, class:"btn btn-outline-primary" %>
+	    <br><br />
+	    <h5 class="card-title">Already have an account?</h5>
+	    <%= link_to 'Sign In', new_user_session_path, class:"btn btn-outline-primary" %>
+        <% end %>
+    <br><br />
+
+  </div>
+</div>
 
