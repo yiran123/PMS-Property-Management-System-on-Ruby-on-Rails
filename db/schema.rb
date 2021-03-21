@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 2021_03_19_024016) do
     t.string "last_name"
     t.string "phone"
     t.string "email"
+    t.string "roomNum"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "roomNum"
   end
 
   create_table "rooms", force: :cascade do |t|
